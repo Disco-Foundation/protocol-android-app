@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: net.ltgt.gradle.incap:incap:0.3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.ltgt.gradle.incap/incap/0.3/951917c0a21acc690ab709bca2caab7ac5f92edb/incap-0.3.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/net.ltgt.gradle.incap/incap/0.3/951917c0a21acc690ab709bca2caab7ac5f92edb/incap-0.3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.ltgt.gradle.incap/incap/0.3/ef8991c6acf2076dc355c7303e7275d988c3c8a2/incap-0.3-javadoc.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/net.ltgt.gradle.incap/incap/0.3/ef8991c6acf2076dc355c7303e7275d988c3c8a2/incap-0.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.ltgt.gradle.incap/incap/0.3/fd74979d4f86cfbf01bba762b10ff15e773da7f3/incap-0.3-sources.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/net.ltgt.gradle.incap/incap/0.3/fd74979d4f86cfbf01bba762b10ff15e773da7f3/incap-0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

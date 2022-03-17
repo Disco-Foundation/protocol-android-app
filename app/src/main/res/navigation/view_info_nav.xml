@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_info_nav"
+    app:startDestination="@id/readNFCFragment">
+
+    <fragment
+        android:id="@+id/readNFCFragment"
+        android:name="disco.foundation.discoprotocol.fragments.common.ReadNFCFragment"
+        android:label="fragment_read_n_f_c"
+        tools:layout="@layout/fragment_read_n_f_c" >
+        <action
+            android:id="@+id/action_readNFCFragment_to_Next"
+            app:destination="@id/viewInfoFragment" />
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="VIEW_INFO" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewInfoFragment"
+        android:name="disco.foundation.discoprotocol.fragments.ViewInfoFragment"
+        android:label="fragment_view_info"
+        tools:layout="@layout/fragment_view_info" >
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType" />
+    </fragment>
+</navigation>

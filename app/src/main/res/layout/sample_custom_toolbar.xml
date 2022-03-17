@@ -1,0 +1,87 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/blue_toolbar_line"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:navigationIcon="@drawable/blue_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="@null">
+
+
+        <net.orandja.shadowlayout.ShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            app:shadow_color="#AA000000"
+            app:shadow_downscale="1"
+            app:shadow_radius="4"
+            app:shadow_with_color="true"
+            app:shadow_with_content="true"
+            app:shadow_with_css_scale="false"
+            app:shadow_with_dpi_scale="true"
+            app:shadow_x_shift="0.5dp"
+            app:shadow_y_shift="0.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/beon"
+                    android:text="@string/check_in"
+                    android:textColor="#00F0FF"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/beon" />
+
+            </LinearLayout>
+        </net.orandja.shadowlayout.ShadowLayout>
+
+        <FrameLayout
+            android:id="@+id/cart_container"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/cart_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/green_cart"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/cart_badge"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="right|end|top"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="-5dp"
+                android:background="@drawable/badge_background"
+                android:gravity="center"
+                android:padding="3dp"
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                tools:ignore="RtlHardcoded,SmallSp" />
+        </FrameLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</FrameLayout>

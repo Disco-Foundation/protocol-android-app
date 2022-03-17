@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup:kotlinpoet-metadata-specs:1.8.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-metadata-specs/1.8.0/f7006907a37a848bf14469097c80dc7b9cd6e79/kotlinpoet-metadata-specs-1.8.0.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet-metadata-specs/1.8.0/f7006907a37a848bf14469097c80dc7b9cd6e79/kotlinpoet-metadata-specs-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-metadata-specs/1.8.0/ba2b2e4eb6d3ce1710e94c5ff1e32f3633d80ed6/kotlinpoet-metadata-specs-1.8.0-javadoc.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet-metadata-specs/1.8.0/ba2b2e4eb6d3ce1710e94c5ff1e32f3633d80ed6/kotlinpoet-metadata-specs-1.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-metadata-specs/1.8.0/9a58966b9c77fc22f72ab1048c615ce9bcc55577/kotlinpoet-metadata-specs-1.8.0-sources.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet-metadata-specs/1.8.0/9a58966b9c77fc22f72ab1048c615ce9bcc55577/kotlinpoet-metadata-specs-1.8.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

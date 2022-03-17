@@ -1,0 +1,16 @@
+<resources>
+    <declare-styleable name="TicketInfoRow">
+        <attr name="rowTitle" format="string" />
+        <attr name="rowValue" format="string" />
+        <attr name="rowColor" format="color" />
+        <attr name="showIcon" format="boolean" />
+        <attr name="rowType" format="enum">
+            <enum name="TICKET" value="0"/>
+            <enum name="CHECK_IN" value="1"/>
+            <enum name="WEARABLE" value="2"/>
+            <enum name="OWNER" value="3"/>
+            <enum name="BALANCE" value="4"/>
+            <enum name="SECURED" value="5"/>
+        </attr>
+    </declare-styleable>
+</resources>

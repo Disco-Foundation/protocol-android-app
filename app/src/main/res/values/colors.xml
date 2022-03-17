@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#010620</color>
+    <color name="neon_blue">#00F0FF</color>
+    <color name="neon_pink">#FF5EF9</color>
+    <color name="neon_green">#19FB9B</color>
+    <color name="neon_purple">#AF7EFF</color>
+    <color name="neon_gold">#FFD600</color>
+    <color name="neon_red">#FF6B6B</color>
+    <color name="glass_blue">#3300F0FF</color>
+    <color name="glass_pink">#33FF5EF9</color>
+    <color name="glass_green">#3319FB9B</color>
+    <color name="glass_purple">#33AF7EFF</color>
+    <color name="shadow_blue">#1A00F0FF</color>
+    <color name="shadow_pink">#1AFF5EF9</color>
+    <color name="shadow_purple">#1AAF7EFF</color>
+    <color name="shadow_green">#1A19FB9B</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
+</resources>

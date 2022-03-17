@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="CustomToolbar">
+        <attr name="toolbar_title" format="string" />
+        <attr name="toolbar_color" format="color" />
+        <attr name="show_right_icon" format="boolean" />
+    </declare-styleable>
+</resources>

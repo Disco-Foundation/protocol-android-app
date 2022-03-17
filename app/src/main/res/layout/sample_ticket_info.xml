@@ -1,0 +1,104 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ticket_info_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/background"
+        android:backgroundTint="@color/background"
+        android:orientation="vertical"
+        android:padding="0dp"
+        app:cardBackgroundColor="@color/background"
+        app:cardCornerRadius="10dp">
+
+        <View
+            android:id="@+id/ticket_shadow_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_shadow_cell" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:minWidth="200dp"
+            android:orientation="vertical"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp">
+
+            <disco.foundation.discoprotocol.components.TicketInfoRow
+                android:id="@+id/row_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowColor="@color/neon_blue"
+                app:rowTitle="VIP Gold Ticket"
+                app:rowType="TICKET"
+                app:rowValue="#000001" />
+
+
+            <disco.foundation.discoprotocol.components.TicketInfoRow
+                android:id="@+id/row_check_in"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowColor="@color/neon_blue"
+                app:rowTitle="@string/info_check_in"
+                app:rowType="CHECK_IN"
+                app:rowValue="06/23/21 23:19" />
+
+
+            <disco.foundation.discoprotocol.components.TicketInfoRow
+                android:id="@+id/row_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowColor="@color/neon_blue"
+                app:rowTitle="@string/wearable_id"
+                app:rowType="WEARABLE"
+                app:rowValue="A267DX6700981TZ" />
+
+            <disco.foundation.discoprotocol.components.TicketInfoRow
+                android:id="@+id/row_owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowColor="@color/neon_blue"
+                app:rowTitle="@string/owner"
+                app:rowType="OWNER"
+                app:rowValue="2wazWzEcf9nahT22Zu7bvdSaHNgTU32JKnhYPyjaiY..." />
+
+
+            <disco.foundation.discoprotocol.components.TicketInfoRow
+                android:id="@+id/row_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowColor="@color/neon_blue"
+                app:rowTitle="@string/balance_title"
+                app:rowType="BALANCE"
+                app:rowValue="211.14 TOKENS" />
+
+
+            <disco.foundation.discoprotocol.components.TicketInfoRow
+                android:id="@+id/row_secured"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rowColor="@color/neon_blue"
+                app:rowTitle="@string/secured"
+                app:rowType="SECURED"
+                app:rowValue="YES" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

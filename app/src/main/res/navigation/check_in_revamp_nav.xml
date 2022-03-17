@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/check_in_revamp_nav"
+    app:startDestination="@id/readNFCFragment">
+
+    <fragment
+        android:id="@+id/readNFCFragment"
+        android:name="disco.foundation.discoprotocol.fragments.common.ReadNFCFragment"
+        android:label="fragment_read_n_f_c"
+        tools:layout="@layout/fragment_read_n_f_c" >
+        <action
+            android:id="@+id/action_readNFCFragment_to_Next"
+            app:destination="@id/enterPasswordFragment" />
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="CHECK_IN" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterPasswordFragment"
+        android:name="disco.foundation.discoprotocol.fragments.EnterPasswordFragment"
+        android:label="fragment_enter_password"
+        tools:layout="@layout/fragment_enter_password" >
+        <action
+            android:id="@+id/action_enterPasswordFragment_to_Next"
+            app:destination="@id/readQrFragment" />
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="CHECK_IN" />
+    </fragment>
+    <fragment
+        android:id="@+id/readQrFragment"
+        android:name="disco.foundation.discoprotocol.fragments.common.ReadQrFragment"
+        android:label="ReadQrFragment" >
+        <action
+            android:id="@+id/action_readQrFragment_to_Next"
+            app:destination="@id/viewInfoFragment" />
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="CHECK_IN" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewInfoFragment"
+        android:name="disco.foundation.discoprotocol.fragments.ViewInfoFragment"
+        android:label="fragment_view_info"
+        tools:layout="@layout/fragment_view_info" >
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="CHECK_IN" />
+    </fragment>
+</navigation>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ViewInfoFragment">
+
+    <disco.foundation.discoprotocol.components.CustomToolbar
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TitleText"
+                android:id="@+id/view_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ticket_info"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"/>
+
+        </LinearLayout>
+
+        <disco.foundation.discoprotocol.components.TicketInfo
+            android:id="@+id/ticket_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            app:infoColor="@color/neon_blue"
+            app:infoType="FULL"
+            app:showIcons="false">
+
+        </disco.foundation.discoprotocol.components.TicketInfo>
+
+    </LinearLayout>
+
+    <disco.foundation.discoprotocol.components.CustomButton
+        android:id="@+id/transactions_btn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:longClickable="true"
+        app:color="@color/neon_blue"
+        app:buttonText="@string/deactivate"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</FrameLayout>

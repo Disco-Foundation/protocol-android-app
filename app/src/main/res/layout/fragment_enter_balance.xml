@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.recharge.EnterBalanceFragment">
+
+    <disco.foundation.discoprotocol.components.CustomToolbar
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical">
+
+        <net.orandja.shadowlayout.ShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="20dp"
+            android:padding="8dp"
+            app:shadow_color="#AA000000"
+            app:shadow_downscale="1"
+            app:shadow_radius="4"
+            app:shadow_with_color="true"
+            app:shadow_with_content="true"
+            app:shadow_with_css_scale="false"
+            app:shadow_with_dpi_scale="true"
+            app:shadow_x_shift="0.5dp"
+            app:shadow_y_shift="0.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintHeight_max="450dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/enter_balance_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/balance_title"
+                    style="@style/TitleText" />
+
+            </LinearLayout>
+
+        </net.orandja.shadowlayout.ShadowLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+
+        <EditText
+            android:id="@+id/enter_balance_edit_text"
+            android:layout_width="130dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@color/background"
+            android:ems="10"
+            android:focusable="auto"
+            android:fontFamily="@font/beon"
+            android:gravity="center|center_horizontal"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="number|numberDecimal"
+            android:maxLength="8"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <View
+            android:id="@+id/enter_balance_text_input_underline"
+            android:layout_width="130dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/neon_green" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:id="@+id/enter_balance_info"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textAlignment="center"
+            style="@style/ImportantInfoText" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <disco.foundation.discoprotocol.components.TextBox
+            android:id="@+id/enter_password_textbox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:shadowColor="@color/shadow_green" />
+    </LinearLayout>
+
+    <disco.foundation.discoprotocol.components.CustomButton
+        android:id="@+id/add_products_btn"
+        style="@style/PrimaryButton"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="95dp"
+        android:longClickable="true"
+        android:visibility="gone"
+        app:buttonText="@string/add_products"
+        app:color="@color/neon_green"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <disco.foundation.discoprotocol.components.CustomButton
+        style="@style/PrimaryButton"
+        android:id="@+id/checkout_btn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:longClickable="true"
+        app:color="@color/neon_green"
+        app:backgroundVector="@drawable/animated_green_border"
+        app:buttonText="@string/checkout"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</FrameLayout>

@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.navigation:navigation-fragment:2.4.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/668f9deaccd4cdd7e8ca039e3e22ec38/transformed/navigation-fragment-2.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/668f9deaccd4cdd7e8ca039e3e22ec38/transformed/navigation-fragment-2.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/668f9deaccd4cdd7e8ca039e3e22ec38/transformed/navigation-fragment-2.4.0/AndroidManifest.xml" />
+      <root url="file://$APPLICATION_HOME_DIR$/jre/caches/transforms-3/bd9e59f2247b9fd0d5e88bf1c2947022/transformed/navigation-fragment-2.4.0/res" />
+      <root url="file://$APPLICATION_HOME_DIR$/jre/caches/transforms-3/bd9e59f2247b9fd0d5e88bf1c2947022/transformed/navigation-fragment-2.4.0/AndroidManifest.xml" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/transforms-3/bd9e59f2247b9fd0d5e88bf1c2947022/transformed/navigation-fragment-2.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bd9e59f2247b9fd0d5e88bf1c2947022/transformed/navigation-fragment-2.4.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/bd9e59f2247b9fd0d5e88bf1c2947022/transformed/navigation-fragment-2.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bd9e59f2247b9fd0d5e88bf1c2947022/transformed/navigation-fragment-2.4.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-fragment/2.4.0/83eb9ba36f36f08cb87db7db2cf0cf37523aad1b/navigation-fragment-2.4.0-sources.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/androidx.navigation/navigation-fragment/2.4.0/83eb9ba36f36f08cb87db7db2cf0cf37523aad1b/navigation-fragment-2.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

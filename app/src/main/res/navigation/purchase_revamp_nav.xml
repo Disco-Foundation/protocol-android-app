@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/purchase_revamp_nav"
+    app:startDestination="@id/enterBalanceFragment">
+
+    <fragment
+        android:id="@+id/enterBalanceFragment"
+        android:name="disco.foundation.discoprotocol.fragments.recharge.EnterBalanceFragment"
+        android:label="fragment_enter_balance"
+        tools:layout="@layout/fragment_enter_balance" >
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="PURCHASE" />
+        <action
+            android:id="@+id/action_enterBalanceFragment_to_Next"
+            app:destination="@id/readNFCFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/readNFCFragment"
+        android:name="disco.foundation.discoprotocol.fragments.common.ReadNFCFragment"
+        android:label="fragment_read_n_f_c"
+        tools:layout="@layout/fragment_read_n_f_c">
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="PURCHASE" />
+        <action
+            android:id="@+id/action_readNFCFragment_to_Next"
+            app:destination="@id/enterPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterPasswordFragment"
+        android:name="disco.foundation.discoprotocol.fragments.EnterPasswordFragment"
+        android:label="fragment_enter_password"
+        tools:layout="@layout/fragment_enter_password">
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="PURCHASE" />
+        <action
+            android:id="@+id/action_enterPasswordFragment_to_Next"
+            app:destination="@id/viewInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewInfoFragment"
+        android:name="disco.foundation.discoprotocol.fragments.ViewInfoFragment"
+        android:label="fragment_view_info"
+        tools:layout="@layout/fragment_view_info">
+        <argument
+            android:name="module"
+            app:argType="disco.foundation.discoprotocol.utils.ModuleType"
+            android:defaultValue="PURCHASE" />
+    </fragment>
+</navigation>

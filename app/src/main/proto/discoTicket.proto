@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "disco.foundation.discoprotocol";
+option java_multiple_files = true;
+
+message ProtoDiscoTicket {
+  string publicKey = 1;
+  string wearableID = 2;
+
+  enum Status {
+      PENDING = 0;
+      VERIFIED = 1;
+  }
+
+  Status status = 3;
+  string checkInDate = 4;
+  string ownerID = 5;
+  double balance = 6;
+  string ticketType =7;
+  string pin = 8;
+}

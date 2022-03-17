@@ -1,0 +1,90 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageView
+                android:id="@+id/info_row_icon"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/blue_check"
+                tools:ignore="ContentDescription" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:ignore="InefficientWeight">
+
+                <TextView
+                    style="@style/InfoTextSmall"
+                    android:id="@+id/info_row_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+
+                <net.orandja.shadowlayout.ShadowLayout
+                    android:id="@+id/text_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="0dp"
+                    app:shadow_color="#AA000000"
+                    app:shadow_downscale="1"
+                    app:shadow_radius="2"
+                    app:shadow_with_color="true"
+                    app:shadow_with_content="true"
+                    app:shadow_with_css_scale="false"
+                    app:shadow_with_dpi_scale="true"
+                    app:shadow_x_shift="0.2dp"
+                    app:shadow_y_shift="0.2dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/info_row_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ellipsize="end"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:text="@string/tickets"
+                        style="@style/InfoText" />
+
+                </net.orandja.shadowlayout.ShadowLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/neon_blue" />
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

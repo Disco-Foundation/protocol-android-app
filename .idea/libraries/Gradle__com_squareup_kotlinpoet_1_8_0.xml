@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup:kotlinpoet:1.8.0">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet/1.8.0/35091cdf46ea7e911e433f5269bcd73c8d536c9/kotlinpoet-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet/1.8.0/b9fdc68b474ab0ea62ce813a5e05137a24dda8ff/kotlinpoet-1.8.0-javadoc.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet/1.8.0/b9fdc68b474ab0ea62ce813a5e05137a24dda8ff/kotlinpoet-1.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet/1.8.0/dfd8295efbbf3fe4549bf240edc7aab06f3e1581/kotlinpoet-1.8.0-sources.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet/1.8.0/dfd8295efbbf3fe4549bf240edc7aab06f3e1581/kotlinpoet-1.8.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

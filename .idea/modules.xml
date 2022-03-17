@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Disco_Protocol.iml" filepath="$PROJECT_DIR$/.idea/modules/Disco_Protocol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.iml" filepath="$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.iml" filepath="$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.iml" />
+    </modules>
+  </component>
+</project>

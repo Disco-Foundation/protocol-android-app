@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="TextBox">
+        <attr name="contentText" format="string" />
+        <attr name="shadowColor" format="color" />
+    </declare-styleable>
+</resources>

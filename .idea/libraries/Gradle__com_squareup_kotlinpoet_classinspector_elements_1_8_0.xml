@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup:kotlinpoet-classinspector-elements:1.8.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-classinspector-elements/1.8.0/e4f1740d2af80824480b8c8755f353a91aff224e/kotlinpoet-classinspector-elements-1.8.0.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet-classinspector-elements/1.8.0/e4f1740d2af80824480b8c8755f353a91aff224e/kotlinpoet-classinspector-elements-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-classinspector-elements/1.8.0/da8b8bdece8928e643379ef185a141c40c0dcf85/kotlinpoet-classinspector-elements-1.8.0-javadoc.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet-classinspector-elements/1.8.0/da8b8bdece8928e643379ef185a141c40c0dcf85/kotlinpoet-classinspector-elements-1.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup/kotlinpoet-classinspector-elements/1.8.0/c53cc95cb28914f9f9d4cdb9c4267574e140f51b/kotlinpoet-classinspector-elements-1.8.0-sources.jar!/" />
+      <root url="jar://$APPLICATION_HOME_DIR$/jre/caches/modules-2/files-2.1/com.squareup/kotlinpoet-classinspector-elements/1.8.0/c53cc95cb28914f9f9d4cdb9c4267574e140f51b/kotlinpoet-classinspector-elements-1.8.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

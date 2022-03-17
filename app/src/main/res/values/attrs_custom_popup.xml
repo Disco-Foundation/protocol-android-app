@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="Popup">
+        <attr name="message" format="string" />
+        <attr name="popupColor" format="color" />/>
+    </declare-styleable>
+</resources>

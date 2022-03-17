@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="TicketInfo">
+        <attr name="infoColor" format="color" />
+        <attr name="showIcons" format="boolean" />
+        <attr name="infoType" format="enum">
+            <enum name="FULL" value="0"/>
+            <enum name="PARTIAL_ID" value="1"/>
+            <enum name="PARTIAL_BALANCE" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

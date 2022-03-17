@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "disco.foundation.discoprotocol";
+option java_multiple_files = true;
+
+message ProtoDiscoBalance {
+  double amount = 1;
+  string mint = 2;
+}

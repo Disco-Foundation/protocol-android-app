@@ -1,0 +1,84 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Disco Protocol</string>
+
+    <!-- Buttons -->
+    <string name="check_in">CHECK IN</string>
+    <string name="recharge">RECHARGE</string>
+    <string name="purchase">PURCHASE</string>
+    <string name="view_info">VIEW INFO</string>
+    <string name="finalize">FINALIZE</string>
+    <string name="transactions">TRANSACTIONS</string>
+    <string name="assign_password">ASSIGN PASSWORD</string>
+    <string name="deactivate">DEACTIVATE</string>
+    <string name="products">PRODUCTS</string>
+    <string name="balance_btn">BALANCE</string>
+    <string name="add_products">ADD PRODUCTS</string>
+    <string name="add_balance">ADD BALANCE</string>
+    <string name="checkout">CHECKOUT</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="balance">BALANCE</string>
+
+
+    <!-- Popups and dialogs -->
+    <string name="try_again">Try again</string>
+    <string name="checking_tickets">Checking tickets</string>
+    <string name="no_tickets">No tickets found</string>
+    <string name="transaction_timeout">Transaction timeout</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="go_to_tickets">Go to tickets</string>
+    <string name="securing_wearable">Securing wearable</string>
+    <string name="configuring_wearable">Configuring wearable</string>
+    <string name="generating_recharge">Generating recharge</string>
+    <string name="processing">Processing request</string>
+    <string name="recharge_successful">Recharge successful</string>
+    <string name="check_in_successful">Check in successful</string>
+    <string name="reading_info">Reading info</string>
+    <string name="waiting_confirmation">Waiting for transaction confirmation</string>
+    <string name="loading">Loading...</string>
+    <string name="wearable_secured">Wearable secured</string>
+    <string name="ok">Ok</string>
+    <string name="balance_to_cart">Balance added to cart</string>
+
+
+    <!-- Check In -->
+    <string name="sign_transaction">Scan the QR code to sign the transaction</string>
+    <string name="sign_transaction_amount">Scan the QR code to sign the transaction</string>
+    <string name="tickets">Tickets</string>
+    <string name="select_ticket">Select a ticket to confirm access ans assign wearable</string>
+    <string name="approach_wearable">Approach the wearable device</string>
+    <string name="enter_password">Enter a 4-digit password to secure the wearable</string>
+    <string name="confirm_password">Confirm your password</string>
+    <string name="no_secure_password">The wearable doesn\'t have a secure password</string>
+    <string name="password_mismatch">Password mismatch</string>
+
+    <!-- Recharge -->
+    <string name="choose_recharge">Choose your recharge option</string>
+    <string name="search">Search...</string>
+    <string name="well_recharge">We\'ll charge you %1$s USDC</string>
+    <string name="enter_amount">Enter the amount of tokens to recharge</string>
+    <string name="total">Total</string>
+
+    <!-- Purchase -->
+    <string name="choose_purchase"> Choose your purchase option</string>
+    <string name="enter_amount_purchase">Enter the amount of tokens to purchase</string>
+    <string name="checking_wearable_info">Checking wearable info</string>
+    <string name="wearable">WEARABLE</string>
+    <string name="wallet">WALLET</string>
+    <string name="choose_payment_method">Choose your payment method</string>
+    <string name="insufficient_balance">Insufficient wearable balance</string>
+    <string name="enter_wearable_pwd">Enter your wearable password</string>
+    <string name="purchase_successful">Purchase successful</string>
+
+
+    <!-- View Info -->
+    <string name="ticket_info">Ticket Info</string>
+    <string name="info_check_in">Check In</string>
+    <string name="wearable_id">Wearable ID</string>
+    <string name="owner">Owner</string>
+    <string name="secured">Secured</string>
+    <string name="balance_title">Balance</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="tokens">TOKENS</string>
+
+</resources>
