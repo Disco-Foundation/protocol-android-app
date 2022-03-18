@@ -1,5 +1,6 @@
 package disco.foundation.discoprotocol.viewModels
 
+import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,6 +24,7 @@ class EnterPasswordViewModel(private val manager: ProtoDataStoreManager) : ViewM
     var saving: MutableLiveData<RequestStatus> = MutableLiveData()
     var loading: MutableLiveData<RequestStatus> = MutableLiveData()
     var purchaseText: MutableLiveData<String?> = MutableLiveData()
+    var errorMsg: String? = null
 
     private var _module: ModuleType = ModuleType.RECHARGE
     var module
@@ -132,6 +134,7 @@ class EnterPasswordViewModel(private val manager: ProtoDataStoreManager) : ViewM
                 val currentBalance = manager.getCurrentBalance()
 
                 if(currentTicket.balance < currentBalance.amount) {
+                    errorMsg = "Insufficient wearable balance"
                     saving.postValue(RequestStatus.ERROR)
                     return@launch
                 }
@@ -144,11 +147,13 @@ class EnterPasswordViewModel(private val manager: ProtoDataStoreManager) : ViewM
                 )
 
                 val response = ApiAdapter.apiClient.purchase(requestBody).body()
+
                 if(response?.status == true){
                     currentTicket.balance = currentTicket.balance - currentBalance.amount
                     manager.setCurrentTicket(currentTicket)
                     saving.postValue(RequestStatus.SUCCESS)
                 } else {
+                    errorMsg = response?.error
                     saving.postValue(RequestStatus.ERROR)
                 }
 

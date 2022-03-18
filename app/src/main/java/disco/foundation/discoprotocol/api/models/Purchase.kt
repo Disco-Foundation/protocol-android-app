@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName
 import java.math.BigInteger
 
 data class PurchaseResponse(
-    @SerializedName("status") val status: Boolean
+    @SerializedName("status") val status: Boolean,
+    @SerializedName("error") val error: String?
 )
 
 data class PurchaseRequestBody(

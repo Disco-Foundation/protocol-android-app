@@ -97,8 +97,10 @@ class EnterPasswordFragment : Fragment() {
                     }
                 }
                 RequestStatus.ERROR -> {
+                    val error = if(viewModel.errorMsg != null) viewModel.errorMsg
+                    else getString(R.string.something_went_wrong)
                     progressDialog.updatePopup(
-                        getString(R.string.something_went_wrong),
+                        error.toString(),
                         true,
                         getString(R.string.try_again)
                     ) {  progressDialog.dismiss() }
