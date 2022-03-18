@@ -102,17 +102,20 @@ class EnterPasswordViewModel(private val manager: ProtoDataStoreManager) : ViewM
                     event.publicKey).body()
 
             if (response != null) {
-                val newTicket = DiscoTicket(
-                    id = response.wearable.pubKey,
-                    wearableId = currentTicket.wearableId,
-                    ownerAddress = response.wearable.wearableVaultPubKey,
-                    balance = response.wearable.balance.twoDecimalDouble(),
-                    secured = true
-                )
-                manager.setCurrentTicket(newTicket)
-                ticket.postValue(newTicket)
-                loading.postValue(RequestStatus.SUCCESS)
-
+                try {
+                    val newTicket = DiscoTicket(
+                        id = response.wearable.pubKey,
+                        wearableId = currentTicket.wearableId,
+                        ownerAddress = response.wearable.wearableVaultPubKey,
+                        balance = response.wearable.balance.twoDecimalDouble(),
+                        secured = true
+                    )
+                    manager.setCurrentTicket(newTicket)
+                    ticket.postValue(newTicket)
+                    loading.postValue(RequestStatus.SUCCESS)
+                } catch (e: Exception){
+                    loading.postValue(RequestStatus.ERROR)
+                }
             } else {  loading.postValue(RequestStatus.ERROR) }
         }
     }
@@ -127,6 +130,11 @@ class EnterPasswordViewModel(private val manager: ProtoDataStoreManager) : ViewM
 
                 val event = manager.getCurrentEvent()
                 val currentBalance = manager.getCurrentBalance()
+
+                if(currentTicket.balance < currentBalance.amount) {
+                    saving.postValue(RequestStatus.ERROR)
+                    return@launch
+                }
 
                 val requestBody = PurchaseRequestBody(
                     amount = currentBalance.amount,

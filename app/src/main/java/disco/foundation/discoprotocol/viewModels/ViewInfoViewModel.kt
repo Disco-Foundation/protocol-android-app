@@ -39,15 +39,18 @@ class ViewInfoViewModel(private val manager: ProtoDataStoreManager) : ViewModel(
                 currentEvent.publicKey).body()
 
             if (response != null) {
-                currentTicket.id = response.wearable.pubKey
-                currentTicket.ownerAddress = response.wearable.wearableVaultPubKey
-                currentTicket.balance = response.wearable.balance.twoDecimalDouble()
-                currentTicket.secured = true
-                manager.setCurrentTicket(currentTicket)
+                try {
+                    currentTicket.id = response.wearable.pubKey
+                    currentTicket.ownerAddress = response.wearable.wearableVaultPubKey
+                    currentTicket.balance = response.wearable.balance.twoDecimalDouble()
+                    currentTicket.secured = true
+                    manager.setCurrentTicket(currentTicket)
 
-                ticket.postValue(currentTicket)
-                loading.postValue(RequestStatus.SUCCESS)
-
+                    ticket.postValue(currentTicket)
+                    loading.postValue(RequestStatus.SUCCESS)
+                } catch (e: Exception){
+                    loading.postValue(RequestStatus.ERROR)
+                }
             } else {  loading.postValue(RequestStatus.ERROR) }
         }
     }

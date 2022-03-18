@@ -38,6 +38,7 @@
     <string name="wearable_secured">Wearable secured</string>
     <string name="ok">Ok</string>
     <string name="balance_to_cart">Balance added to cart</string>
+    <string name="invalid_amount">Invalid amount</string>
 
 
     <!-- Check In -->

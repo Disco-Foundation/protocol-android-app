@@ -19,6 +19,7 @@ import disco.foundation.discoprotocol.api.RequestStatus
 import disco.foundation.discoprotocol.components.CustomPopup
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.FragmentEnterBalanceBinding
+import disco.foundation.discoprotocol.utils.twoDecimalDouble
 import disco.foundation.discoprotocol.viewModels.EnterBalanceViewModel
 
 
@@ -93,7 +94,6 @@ class EnterBalanceFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     fun setupButtons(){
-
         binding.checkoutBtn.color = viewModel.module.color
         binding.checkoutBtn.setupAnimation {
             viewModel.clearData()
@@ -109,7 +109,9 @@ class EnterBalanceFragment : Fragment() {
 
         binding.enterBalanceEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                viewModel.saveBalance(binding.enterBalanceEditText.text.toString().toDouble())
+                if(binding.enterBalanceEditText.error == null) {
+                    viewModel.saveBalance(binding.enterBalanceEditText.text.toString().toDouble())
+                }
             }
             false
         }
@@ -121,7 +123,15 @@ class EnterBalanceFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 s?.apply {
-                    binding.enterBalanceInfo.text = getString(R.string.well_recharge, s.toString())
+                    try {
+                        val amount = s?.toString().toDouble().twoDecimalDouble()
+                        binding.enterBalanceInfo.text = getString(R.string.well_recharge, amount.toString())
+                        binding.enterBalanceInfo.error = null
+                    } catch (e: Exception){
+                        binding.enterBalanceInfo.error = ""
+                        binding.enterBalanceInfo.text = getString(R.string.invalid_amount)
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable?) {}
