@@ -36,7 +36,7 @@ class ViewInfoViewModel(private val manager: ProtoDataStoreManager) : ViewModel(
 
             val response = ApiAdapter.apiClient.getWearableInfo(
                 currentTicket.wearableId,
-                currentEvent.publicKey).body()
+                currentEvent?.eventId ?: "").body()
 
             if (response != null) {
                 try {

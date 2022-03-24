@@ -55,4 +55,8 @@
         <item name="android:textSize">28sp</item>
     </style>
 
+    <style name="itemTextStyle.AppTheme" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>

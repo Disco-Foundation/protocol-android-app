@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.sample_custom_popup.*
 class CustomPopup(context: Context) : Dialog(context) {
 
     private var _messageText: String = ""
-    private var _color: Int = Color.TRANSPARENT
+    private var _color: Int = R.color.neon_blue
 
     private var messageText: String
         get() = _messageText
@@ -62,12 +62,16 @@ class CustomPopup(context: Context) : Dialog(context) {
 
     fun updatePopup(message: String, showButton: Boolean, buttonText: String? = null, action: (() -> Unit)? = null){
         // Popup text message
-        messageText = message
-        // Show Widget
-        if (showButton){
-            initButton(buttonText!!, action!!)
+        if(isShowing) {
+            messageText = message
+            // Show Widget
+            if (showButton) {
+                initButton(buttonText!!, action!!)
+            } else {
+                showProgressBar()
+            }
         } else {
-            showProgressBar()
+            showPopup(message, color,showButton,buttonText, action)
         }
     }
 

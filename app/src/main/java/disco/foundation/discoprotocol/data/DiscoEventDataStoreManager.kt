@@ -51,7 +51,7 @@ class DiscoEventDataStoreManager(context: Context){
     private fun DiscoEvent.toProtoDiscoEvent(): ProtoDiscoEvent {
         return ProtoDiscoEvent.newBuilder()
             .setName(this.name)
-            .setPublicKey(this.publicKey)
+            .setPublicKey(this.eventId)
             .build()
     }
 }

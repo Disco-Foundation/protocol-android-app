@@ -12,11 +12,17 @@
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterTransition">@android:transition/slide_right</item>
         <item name="android:windowExitTransition">@android:transition/slide_left</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:itemTextAppearance">@style/itemTextStyle.AppTheme</item>
 
     </style>
 
     <style name="Theme.DiscoProtocol.Splash" parent="Theme.DiscoProtocol">
         <item name="android:windowFullscreen">true</item>>
+    </style>
+
+    <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
+        <item name="android:popupBackground">#010414</item>
     </style>
 
 </resources>

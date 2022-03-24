@@ -3,6 +3,6 @@ package disco.foundation.discoprotocol.models
 import com.google.gson.annotations.SerializedName
 
 data class DiscoEvent(
-    @SerializedName("publicKey") var publicKey: String,
-    @SerializedName("name") var name: String = "",
+    @SerializedName("eventId") var eventId: String,
+    @SerializedName("eventName") var name: String = "",
 )

@@ -28,18 +28,17 @@
 
             <TextView
                 android:id="@+id/message"
+                style="@style/InfoText"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:textAlignment="center"
-                style="@style/InfoText" />
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center" />
 
             <Space
                 android:layout_width="wrap_content"
-                android:minHeight="20dp"
+                android:minHeight="10dp"
                 android:layout_height="wrap_content"/>
 
             <ProgressBar

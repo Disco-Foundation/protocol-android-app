@@ -124,7 +124,7 @@ class EnterBalanceFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 s?.apply {
                     try {
-                        val amount = s?.toString().toDouble().twoDecimalDouble()
+                        val amount = s.toString().toDouble().twoDecimalDouble()
                         binding.enterBalanceInfo.text = getString(R.string.well_recharge, amount.toString())
                         binding.enterBalanceInfo.error = null
                     } catch (e: Exception){

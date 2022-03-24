@@ -39,6 +39,11 @@
     <string name="ok">Ok</string>
     <string name="balance_to_cart">Balance added to cart</string>
     <string name="invalid_amount">Invalid amount</string>
+    <string name="center_qr">Center the QR Code inside the frame</string>
+    <string name="need_setup_event">Setup your event by reading the QR code</string>
+    <string name="invalid_event">Invalid Event data</string>
+    <string name="new_event">Set up a new event</string>
+    <string name="event_setup_successful">Your event has been set up successfully</string>
 
 
     <!-- Check In -->

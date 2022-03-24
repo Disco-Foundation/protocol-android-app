@@ -17,8 +17,8 @@ class ProtoDataStoreManager(context: Context){
     /* Disco Balance Data Store Manager */
     private val discoBalanceDataStore = DiscoBalanceStoreManager(context)
 
-    suspend fun getCurrentEvent(): DiscoEvent {
-        return discoEventDatastore.getEvent() ?: DiscoEvent(EVENT_ID)
+    suspend fun getCurrentEvent(): DiscoEvent? {
+        return discoEventDatastore.getEvent()
     }
 
     suspend fun setCurrentEvent(event: DiscoEvent){

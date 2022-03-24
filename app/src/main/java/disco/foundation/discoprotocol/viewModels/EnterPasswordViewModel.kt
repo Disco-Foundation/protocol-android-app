@@ -101,7 +101,7 @@ class EnterPasswordViewModel(private val manager: ProtoDataStoreManager) : ViewM
 
             val response = ApiAdapter.apiClient.getWearableInfo(
                 currentTicket.wearableId,
-                    event.publicKey).body()
+                    event?.eventId ?: "").body()
 
             if (response != null) {
                 try {
@@ -143,7 +143,7 @@ class EnterPasswordViewModel(private val manager: ProtoDataStoreManager) : ViewM
                     amount = currentBalance.amount,
                     pin = value,
                     wearableId = currentTicket.wearableId,
-                    eventId = event.publicKey
+                    eventId = event?.eventId ?: ""
                 )
 
                 val response = ApiAdapter.apiClient.purchase(requestBody).body()

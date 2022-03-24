@@ -31,4 +31,9 @@ class HomeActivity : AppCompatActivity() {
         val intent = Intent(this, ViewInfoActivity::class.java)
         startActivity(intent)
     }
+
+    fun goToReadQr(){
+        val intent = Intent(this, ReadQrCamera::class.java)
+        startActivity(intent)
+    }
 }

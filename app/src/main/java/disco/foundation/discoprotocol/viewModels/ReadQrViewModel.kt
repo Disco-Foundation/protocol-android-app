@@ -61,7 +61,6 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
         }
     }
 
-
     // copy this method to your class
     @SuppressLint("ResourceAsColor")
     fun generateQRCode(text: String, color: Int): Bitmap {
@@ -100,7 +99,7 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
             val requestInstruction = CheckInRequestBodyInstruction(
                 PIN = currentTicket.pin,
                 wearableId = currentTicket.wearableId,
-                eventId = currentEvent.publicKey
+                eventId = currentEvent?.eventId ?: ""
             )
             val requestAction = ActionType.CHECKIN.toString()
             val requestBody = CheckInRequestBody(
@@ -142,7 +141,7 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
            val requestData = RechargeInstructionDataBody(
                amount = currentBalance.amount,
                wearableId = currentTicket.wearableId,
-               eventId = currentEvent.publicKey
+               eventId = currentEvent?.eventId ?: ""
            )
            val requestBody = RechargeInstructionBody(
                ActionType.RECHARGE.toString(),

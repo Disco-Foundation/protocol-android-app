@@ -1,10 +1,13 @@
 package disco.foundation.discoprotocol.fragments
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +19,7 @@ import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.FragmentHomeBinding
 import disco.foundation.discoprotocol.utils.ModuleType
 import disco.foundation.discoprotocol.viewModels.HomeViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
 
 @RequiresApi(Build.VERSION_CODES.M)
 class HomeFragment : Fragment() {
@@ -40,6 +44,10 @@ class HomeFragment : Fragment() {
             HomeViewModel.FACTORY(ProtoDataStoreManager(requireContext()))
         )[HomeViewModel::class.java]
         subscribeToEventData()
+
+    }
+    override fun onResume() {
+        super.onResume()
         viewModel.getEvent()
         initButtons()
     }
@@ -72,23 +80,56 @@ class HomeFragment : Fragment() {
         }
     }
 
+    @SuppressLint("NewApi")
+    private fun setupReadQr(){
+        val showPopUp = PopupMenu(
+            requireContext(),
+            binding.qrReader
+        )
+        showPopUp.inflate(R.menu.settings_menu)
+        showPopUp.setForceShowIcon(true)
+        showPopUp.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.item1 -> {
+                    (activity as HomeActivity).goToReadQr()
+                }
+            }
+            false
+        }
+        binding.qrReader.setOnClickListener {
+            showPopUp.show()
+        }
+    }
+
     private fun initButtons(){
         setupCheckIn()
         setupRecharge()
         setupPurchase()
         setupCheckInfo()
+        setupReadQr()
     }
+
 
     private fun subscribeToEventData() {
         // Observe product data
         viewModel.liveEvent.observe(viewLifecycleOwner
         ) {
-            if(it == RequestStatus.LOADING){
-                progressDialog.showPopup("Loading...", R.color.neon_blue,false)
-            } else{
-                progressDialog.dismiss()
+            when (it) {
+                RequestStatus.LOADING -> {  }
+                RequestStatus.ERROR -> {
+                    progressDialog.updatePopup(
+                        getString(viewModel.errorMsg?: R.string.something_went_wrong),
+                        true,
+                        getString(R.string.ok)
+                    ){
+                        progressDialog.dismiss()
+                        (activity as HomeActivity).goToReadQr()
+                    }
+                }
+                else -> {
+                    progressDialog.dismiss()
+                }
             }
         }
     }
-
 }
