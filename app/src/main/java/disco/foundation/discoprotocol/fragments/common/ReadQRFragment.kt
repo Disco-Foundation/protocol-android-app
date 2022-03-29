@@ -12,18 +12,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.api.RequestStatus
-import disco.foundation.discoprotocol.components.CustomPopup
+import disco.foundation.discoprotocol.components.CustomDialog
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.ReadQRFragmentBinding
 import disco.foundation.discoprotocol.utils.setIndeterminateTintCompat
 import disco.foundation.discoprotocol.viewModels.ReadQrViewModel
 
-class ReadQrFragment : Fragment() {
+class ReadQrFragment : BaseFragment() {
 
     private val args: ReadQrFragmentArgs by navArgs()
 
     private lateinit var binding: ReadQRFragmentBinding
-    private lateinit var progressDialog : CustomPopup
     private lateinit var viewModel: ReadQrViewModel
 
     override fun onCreateView(
@@ -54,7 +53,6 @@ class ReadQrFragment : Fragment() {
         binding.customToolbar.setupToolbar(viewModel.module.color, getString(viewModel.module.title))
         binding.qrTextBox.setupTextBoxView(getString(viewModel.getTextBoxResource()),viewModel.module.color)
         binding.transactionProgressBar.setIndeterminateTintCompat(ContextCompat.getColor(requireContext(), viewModel.module.color))
-        progressDialog = CustomPopup(requireContext())
         subscribeToEventData()
     }
 
@@ -72,30 +70,29 @@ class ReadQrFragment : Fragment() {
             when (it) {
                 RequestStatus.ERROR -> {
                     hideTransactionLoading()
-                    progressDialog.showPopup(
+                    dialog.update(
                         getString(R.string.something_went_wrong),
                         viewModel.module.color,
                         true,
                         getString(R.string.ok)
-                    ) { progressDialog.dismiss()
+                    ) {
                         findNavController().navigate(ReadQrFragmentDirections
                             .actionReadQrFragmentToNext(viewModel.module))
                     }
                 }
                 RequestStatus.SUCCESS -> {
                     hideTransactionLoading()
-                    progressDialog.showPopup(
+                    dialog.update(
                         getString(viewModel.getSuccessText()),
                         viewModel.module.color,
                         true,
                         getString(R.string.ok)
                     ) {
-                        progressDialog.dismiss()
                         findNavController().navigate(ReadQrFragmentDirections
                                 .actionReadQrFragmentToNext(viewModel.module))
                     }
                 }
-                else -> { progressDialog.dismiss() }
+                else -> { }
             }
         }
 

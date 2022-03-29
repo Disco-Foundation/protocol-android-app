@@ -16,20 +16,20 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.api.RequestStatus
-import disco.foundation.discoprotocol.components.CustomPopup
+import disco.foundation.discoprotocol.components.CustomDialog
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.FragmentEnterBalanceBinding
+import disco.foundation.discoprotocol.fragments.common.BaseFragment
 import disco.foundation.discoprotocol.utils.twoDecimalDouble
 import disco.foundation.discoprotocol.viewModels.EnterBalanceViewModel
 
 
-class EnterBalanceFragment : Fragment() {
+class EnterBalanceFragment : BaseFragment() {
 
     private val args: EnterBalanceFragmentArgs by navArgs()
     private lateinit var binding: FragmentEnterBalanceBinding
     private lateinit var viewModel: EnterBalanceViewModel
 
-    private lateinit var progressDialog : CustomPopup
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +60,6 @@ class EnterBalanceFragment : Fragment() {
     private fun setupUI(){
         binding.customToolbar.setupToolbar(viewModel.module.color, getString(viewModel.module.title))
         binding.customToolbar.setListener { activity?.finish() }
-        progressDialog = CustomPopup(requireContext())
         setupButtons()
         setupTextBox()
         setupBalanceInput()
@@ -70,24 +69,21 @@ class EnterBalanceFragment : Fragment() {
         viewModel.saving.observe(viewLifecycleOwner){
             when (it) {
                 RequestStatus.SUCCESS -> {
-                    progressDialog.dismiss()
-                    progressDialog.showPopup(getString(R.string.balance_to_cart),
+                    dialog.update(getString(R.string.balance_to_cart),
                         viewModel.module.color,true, getString(R.string.ok)){
-                        progressDialog.dismiss()
+                        dismissDialog()
                     }
                 }
                 RequestStatus.LOADING -> {
-                    progressDialog.showPopup(getString(R.string.loading), viewModel.module.color,false)
+                    dialog.update(getString(R.string.loading), viewModel.module.color,false)
                 }
                 RequestStatus.ERROR -> {
-                    progressDialog.dismiss()
-                    progressDialog.showPopup(getString(R.string.something_went_wrong),
+                   dismissDialog()
+                    dialog.update(getString(R.string.something_went_wrong),
                         viewModel.module.color,true, getString(R.string.try_again)
-                    ) { progressDialog.dismiss() }
+                    ) { dismissDialog() }
                 }
-                else -> {
-                    progressDialog.dismiss()
-                }
+                else -> {}
             }
         }
     }

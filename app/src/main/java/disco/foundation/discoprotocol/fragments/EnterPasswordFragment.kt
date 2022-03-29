@@ -16,18 +16,18 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.api.RequestStatus
-import disco.foundation.discoprotocol.components.CustomPopup
+import disco.foundation.discoprotocol.components.CustomDialog
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.FragmentEnterPasswordBinding
+import disco.foundation.discoprotocol.fragments.common.BaseFragment
 import disco.foundation.discoprotocol.utils.isPasswordValid
 import disco.foundation.discoprotocol.viewModels.EnterPasswordViewModel
 
-class EnterPasswordFragment : Fragment() {
+class EnterPasswordFragment : BaseFragment() {
 
     private val args: EnterPasswordFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentEnterPasswordBinding
-    private lateinit var progressDialog : CustomPopup
     private lateinit var viewModel: EnterPasswordViewModel
 
     override fun onCreateView(
@@ -62,7 +62,6 @@ class EnterPasswordFragment : Fragment() {
 
     private fun setupUI(){
         binding.customToolbar.setupToolbar(viewModel.module.color, getString(viewModel.module.title))
-        progressDialog = CustomPopup(requireContext())
         viewModel.clearData()
         setupTicketView()
         setupPasswordTextViews()
@@ -76,17 +75,17 @@ class EnterPasswordFragment : Fragment() {
 
         viewModel.saving.observe(viewLifecycleOwner){
             when(it){
-                RequestStatus.LOADING -> progressDialog.showPopup(
+                RequestStatus.LOADING -> dialog.update(
                     getString(viewModel.getProcessingText()),
                     viewModel.module.color,
                     false)
                 RequestStatus.SUCCESS -> {
-                    progressDialog.updatePopup(
+                    dialog.update(
                         getString(viewModel.getSuccessProcessingText()),
+                        viewModel.module.color,
                         true,
                         getString(R.string.ok)
                     ) {
-                        progressDialog.dismiss()
                         if(viewModel.goHomeAfter()){
                             activity?.finish()
                         } else {
@@ -99,34 +98,36 @@ class EnterPasswordFragment : Fragment() {
                 RequestStatus.ERROR -> {
                     val error = if(viewModel.errorMsg != null) viewModel.errorMsg
                     else getString(R.string.something_went_wrong)
-                    progressDialog.updatePopup(
+                    dialog.update(
                         error.toString(),
+                        viewModel.module.color,
                         true,
                         getString(R.string.try_again)
-                    ) {  progressDialog.dismiss() }
+                    ) {  dismissDialog() }
                 }
-                else -> { progressDialog.dismiss() }
+                else -> { }
             }
         }
 
         viewModel.loading.observe(viewLifecycleOwner){
             when(it){
-                RequestStatus.LOADING -> progressDialog.showPopup(
+                RequestStatus.LOADING -> dialog.update(
                     getString(R.string.loading),
                     viewModel.module.color,
                     false)
                 RequestStatus.SUCCESS -> {
                     binding.ticketInfoContainer.visibility = VISIBLE
-                    progressDialog.dismiss()
+                    dismissDialog()
                 }
                 RequestStatus.ERROR -> {
-                    progressDialog.updatePopup(
+                    dialog.update(
                         getString(R.string.something_went_wrong),
+                        viewModel.module.color,
                         true,
                         getString(R.string.try_again)
-                    ) {  progressDialog.dismiss() }
+                    ) {  dismissDialog() }
                 }
-                else -> { progressDialog.dismiss() }
+                else -> { }
             }
         }
 

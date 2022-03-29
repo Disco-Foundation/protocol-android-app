@@ -21,21 +21,27 @@
         android:theme="@style/Theme.DiscoProtocol">
         <activity
             android:name=".activities.ReadQrCamera"
+            android:launchMode="singleInstance"
             android:exported="false" />
         <activity
             android:name=".activities.ViewInfoActivity"
+            android:launchMode="singleInstance"
             android:exported="false" />
         <activity
             android:name=".activities.PurchaseActivity"
+            android:launchMode="singleInstance"
             android:exported="false" />
         <activity
             android:name=".activities.RechargeActivity"
+            android:launchMode="singleInstance"
             android:exported="false" />
         <activity
             android:name=".activities.CheckInActivity"
-            android:exported="false"></activity>
+            android:launchMode="singleInstance"
+            android:exported="false"/>
         <activity
             android:name=".activities.HomeActivity"
+            android:launchMode="singleInstance"
             android:exported="false" />
         <activity
             android:name=".activities.SplashActivity"

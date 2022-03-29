@@ -9,25 +9,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.api.RequestStatus
-import disco.foundation.discoprotocol.components.CustomPopup
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.FragmentReadNFCBinding
 import disco.foundation.discoprotocol.utils.ModuleType
 import disco.foundation.discoprotocol.utils.setNFCIcon
 import disco.foundation.discoprotocol.viewModels.ReadNfcViewModel
 
-class ReadNFCFragment : Fragment(), NfcAdapter.ReaderCallback {
+class ReadNFCFragment : BaseFragment(), NfcAdapter.ReaderCallback {
 
     private val args: ReadNFCFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentReadNFCBinding
-    private lateinit var progressDialog : CustomPopup
     private lateinit var viewModel: ReadNfcViewModel
 
     private var nfcAdapter: NfcAdapter? = null
@@ -64,7 +61,6 @@ class ReadNFCFragment : Fragment(), NfcAdapter.ReaderCallback {
         if (viewModel.module == ModuleType.CHECK_IN || viewModel.module == ModuleType.VIEW_INFO ){
             binding.customToolbar.setListener { activity?.finish() }
         }
-        progressDialog = CustomPopup(requireContext())
         binding.nfcTextBox.setupTextBoxView(getString(R.string.approach_wearable),viewModel.module.color)
         binding.nfcImageView.setNFCIcon(viewModel.module.color)
         viewModel.clearData()
@@ -111,27 +107,26 @@ class ReadNFCFragment : Fragment(), NfcAdapter.ReaderCallback {
         viewModel.loading.observe(viewLifecycleOwner){
             when (it) {
                 RequestStatus.LOADING -> {
-                    progressDialog.showPopup(
+                    dialog.update(
                         getString(R.string.reading_info),
                         viewModel.module.color,
                         false
                     )
                 }
                 RequestStatus.SUCCESS -> {
-                    progressDialog.dismiss()
-                    viewModel.clearData()
-                    this.findNavController().navigate(ReadNFCFragmentDirections.actionReadNFCFragmentToNext(args.module))
+                    this.findNavController()
+                        .navigate(ReadNFCFragmentDirections
+                            .actionReadNFCFragmentToNext(args.module))
                 }
                 RequestStatus.ERROR -> {
-                    progressDialog.dismiss()
-                    progressDialog.showPopup(
+                    dialog.update(
                         getString(R.string.something_went_wrong),
                         viewModel.module.color,
                         true,
                         getString(R.string.try_again)
-                    ) { progressDialog.dismiss() }
+                    ) { dismissDialog() }
                 }
-                else -> {  progressDialog.dismiss() }
+                else -> { }
             }
         }
     }

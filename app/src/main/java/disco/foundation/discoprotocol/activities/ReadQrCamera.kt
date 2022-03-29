@@ -1,13 +1,11 @@
 package disco.foundation.discoprotocol.activities
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Size
-import android.view.LayoutInflater
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.camera.core.CameraSelector
@@ -26,7 +24,7 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import com.google.common.util.concurrent.ListenableFuture
 import disco.foundation.discoprotocol.api.RequestStatus
-import disco.foundation.discoprotocol.components.CustomPopup
+import disco.foundation.discoprotocol.components.CustomDialog
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.viewModels.ReadQRCameraViewModel
 
@@ -37,7 +35,7 @@ class ReadQrCamera : AppCompatActivity() {
     private lateinit var analyzer: ImageAnalyzer
     private lateinit var binding: ActivityReadQrCameraBinding
     private lateinit var viewModel: ReadQRCameraViewModel
-    private lateinit var progressDialog : CustomPopup
+    private lateinit var dialog : CustomDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +56,7 @@ class ReadQrCamera : AppCompatActivity() {
             ReadQRCameraViewModel.FACTORY(ProtoDataStoreManager(this))
         )[ReadQRCameraViewModel::class.java]
 
-        progressDialog = CustomPopup(this)
+        dialog = CustomDialog(this)
         askPermission()
         subscribeToData()
     }
@@ -84,6 +82,10 @@ class ReadQrCamera : AppCompatActivity() {
             val cameraProvider = cameraProviderFuture.get()
             bindPreview(cameraProvider)
         }, ContextCompat.getMainExecutor(this))
+    }
+
+    private fun stopCamera(){
+        cameraProviderFuture.cancel(true)
     }
 
 
@@ -129,23 +131,28 @@ class ReadQrCamera : AppCompatActivity() {
         viewModel.loading.observe(this){
             when (it){
                 RequestStatus.LOADING -> {
-                    progressDialog.showPopup(
+                    dialog.update(
                         getString(R.string.loading),
                         R.color.neon_blue,
                         false)
                 }
                 RequestStatus.ERROR -> {
-                    progressDialog.updatePopup(getString(R.string.invalid_event),
-                    true,
-                    getString(R.string.try_again)){
-                        progressDialog.dismiss()
+                    dialog.update(
+                        getString(R.string.invalid_event),
+                        R.color.neon_blue,
+                        true,
+                        getString(R.string.try_again))
+                    {
+                        dialog.dismiss()
                     }
                 }
                 else -> {
-                    progressDialog.updatePopup(getString(R.string.event_setup_successful),
+                    dialog.update(getString(R.string.event_setup_successful),
+                        R.color.neon_blue,
                         true,
-                        getString(R.string.ok)){
-                        progressDialog.dismiss()
+                        getString(R.string.ok))
+                    {
+                        dialog.dismiss()
                         finish()
                     }
                 }

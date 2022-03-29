@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
@@ -14,26 +13,24 @@ import androidx.lifecycle.ViewModelProvider
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.activities.HomeActivity
 import disco.foundation.discoprotocol.api.RequestStatus
-import disco.foundation.discoprotocol.components.CustomPopup
+import disco.foundation.discoprotocol.components.CustomDialog
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.FragmentHomeBinding
+import disco.foundation.discoprotocol.fragments.common.BaseFragment
 import disco.foundation.discoprotocol.utils.ModuleType
 import disco.foundation.discoprotocol.viewModels.HomeViewModel
-import kotlinx.android.synthetic.main.fragment_home.*
 
 @RequiresApi(Build.VERSION_CODES.M)
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
-    private lateinit var progressDialog : CustomPopup
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container,false)
-        progressDialog = CustomPopup(requireContext())
         return binding.root
     }
 
@@ -115,20 +112,17 @@ class HomeFragment : Fragment() {
         viewModel.liveEvent.observe(viewLifecycleOwner
         ) {
             when (it) {
-                RequestStatus.LOADING -> {  }
                 RequestStatus.ERROR -> {
-                    progressDialog.updatePopup(
+                    dialog.update(
                         getString(viewModel.errorMsg?: R.string.something_went_wrong),
+                        R.color.neon_blue,
                         true,
                         getString(R.string.ok)
                     ){
-                        progressDialog.dismiss()
                         (activity as HomeActivity).goToReadQr()
                     }
                 }
-                else -> {
-                    progressDialog.dismiss()
-                }
+                else -> { dismissDialog() }
             }
         }
     }

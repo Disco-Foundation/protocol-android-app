@@ -42,7 +42,7 @@ class TextBox @JvmOverloads constructor(
 
         // Load attributes
         val a = context.obtainStyledAttributes(
-            attrs, R.styleable.PrimaryButton, defStyle, 0
+            attrs, R.styleable.CustomButton, defStyle, 0
         )
 
         contentText = a.getString(

@@ -12,8 +12,8 @@ import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import disco.foundation.discoprotocol.R
+import disco.foundation.discoprotocol.databinding.SampleCustomButtonBinding
 import disco.foundation.discoprotocol.utils.isColorResource
-import kotlinx.android.synthetic.main.sample_primary_button.view.*
 
 @RequiresApi(Build.VERSION_CODES.M)
 @SuppressLint("ResourceAsColor", "CustomViewStyleable")
@@ -26,6 +26,8 @@ class CustomButton@JvmOverloads constructor(
     private var _buttonText: String = ""
     private var _color: Int = R.color.neon_blue
     private var _backgroundVector: Int = R.drawable.animated_blue_border
+    private var binding: SampleCustomButtonBinding =
+        SampleCustomButtonBinding.inflate(LayoutInflater.from(context),this, true)
 
     var buttonText: String
         get() = _buttonText
@@ -50,16 +52,15 @@ class CustomButton@JvmOverloads constructor(
         }
 
     init {
-        LayoutInflater.from(context).inflate(R.layout.sample_primary_button, this, true)
         // Load attributes
         val a = context.obtainStyledAttributes(
-            attrs, R.styleable.PrimaryButton, defStyle, 0
+            attrs, R.styleable.CustomButton, defStyle, 0
         )
-        color = a.getColor(R.styleable.PrimaryButton_color, _color)
-        backgroundVector = a.getResourceId(R.styleable.PrimaryButton_backgroundVector, _backgroundVector)
+        color = a.getColor(R.styleable.CustomButton_color, _color)
+        backgroundVector = a.getResourceId(R.styleable.CustomButton_backgroundVector, _backgroundVector)
 
         buttonText = a.getString(
-            R.styleable.PrimaryButton_buttonText
+            R.styleable.CustomButton_buttonText
         ).toString()
 
         a.recycle()
@@ -67,17 +68,17 @@ class CustomButton@JvmOverloads constructor(
 
     @SuppressLint("ResourceType")
     fun setText(){
-        button_title.text = buttonText
+        binding.buttonTitle.text = buttonText
         if (color.isColorResource(this)){
-            button_title.setTextColor(ContextCompat.getColor(context,color))
+            binding.buttonTitle.setTextColor(ContextCompat.getColor(context,color))
         } else {
-            button_title.setTextColor(color)
+            binding.buttonTitle.setTextColor(color)
         }
     }
 
     private fun setImage(){
-        button_image_view.setBackgroundResource(_backgroundVector)
-        val bg: AnimatedVectorDrawable? = (button_image_view.background as? AnimatedVectorDrawable)
+        binding.buttonImageView.setBackgroundResource(_backgroundVector)
+        val bg: AnimatedVectorDrawable? = (binding.buttonImageView.background as? AnimatedVectorDrawable)
         this.setOnLongClickListener{
             bg?.start()
             return@setOnLongClickListener true
@@ -85,13 +86,12 @@ class CustomButton@JvmOverloads constructor(
     }
 
     fun setupAnimation(cb: () -> Unit){
-        val bg: AnimatedVectorDrawable? = (button_image_view.background as? AnimatedVectorDrawable)
+        val bg: AnimatedVectorDrawable? = (binding.buttonImageView.background as? AnimatedVectorDrawable)
         val value: Animatable2.AnimationCallback = @RequiresApi(Build.VERSION_CODES.M)
         object : Animatable2.AnimationCallback() {
 
             override fun onAnimationStart(drawable: Drawable?) {
                 super.onAnimationStart(drawable)
-                println("---------ANIMATION OCCURS-----")
             }
 
             /** Called when the animation ends*/
