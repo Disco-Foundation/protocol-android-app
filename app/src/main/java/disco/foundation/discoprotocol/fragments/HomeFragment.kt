@@ -8,19 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.activities.HomeActivity
 import disco.foundation.discoprotocol.api.RequestStatus
-import disco.foundation.discoprotocol.components.CustomDialog
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.FragmentHomeBinding
 import disco.foundation.discoprotocol.fragments.common.BaseFragment
 import disco.foundation.discoprotocol.utils.ModuleType
 import disco.foundation.discoprotocol.viewModels.HomeViewModel
 
-@RequiresApi(Build.VERSION_CODES.M)
 class HomeFragment : BaseFragment() {
 
     private lateinit var binding: FragmentHomeBinding
@@ -77,14 +74,16 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    @SuppressLint("NewApi")
+
     private fun setupReadQr(){
         val showPopUp = PopupMenu(
             requireContext(),
             binding.qrReader
         )
         showPopUp.inflate(R.menu.settings_menu)
-        showPopUp.setForceShowIcon(true)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            showPopUp.setForceShowIcon(true)
+        }
         showPopUp.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.item1 -> {

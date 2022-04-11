@@ -44,6 +44,7 @@
     <string name="invalid_event">Invalid Event data</string>
     <string name="new_event">Set up a new event</string>
     <string name="event_setup_successful">Your event has been set up successfully</string>
+    <string name="device_not_supported">This device does not support NFC which is required for the app</string>
 
 
     <!-- Check In -->
@@ -60,7 +61,7 @@
     <!-- Recharge -->
     <string name="choose_recharge">Choose your recharge option</string>
     <string name="search">Search...</string>
-    <string name="well_recharge">We\'ll charge you %1$s USDC</string>
+    <string name="well_recharge">We\'ll charge you %1$s DISCO</string>
     <string name="enter_amount">Enter the amount of tokens to recharge</string>
     <string name="total">Total</string>
 

@@ -53,6 +53,16 @@ class ReadNFCFragment : BaseFragment(), NfcAdapter.ReaderCallback {
     @SuppressLint("UnspecifiedImmutableFlag")
     private fun setupNFCReader(){
         nfcAdapter = NfcAdapter.getDefaultAdapter(context)
+        if(nfcAdapter == null){
+            dialog.update(getString(R.string.device_not_supported),
+                viewModel.module.color,
+                true,
+                getString(R.string.ok)
+            ){
+                dismissDialog()
+                activity?.finish()
+            }
+        }
         nfcPendingIntent = PendingIntent.getActivity(context,0,Intent(activity,javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),0)
     }
 
