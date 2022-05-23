@@ -7,7 +7,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="280dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
@@ -15,8 +15,8 @@
         android:paddingBottom="0dp"
         app:cardBackgroundColor="@color/background"
         app:cardCornerRadius="10dp"
-        app:strokeWidth="0.5dp"
-        app:strokeColor="#A0FFFFFF">
+        app:strokeColor="#A0FFFFFF"
+        app:strokeWidth="0.5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                 android:id="@+id/message"
                 style="@style/InfoText"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
@@ -38,8 +38,8 @@
 
             <Space
                 android:layout_width="wrap_content"
-                android:minHeight="10dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:minHeight="10dp" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -66,6 +66,10 @@
                 android:textColor="@color/neon_blue"
                 android:textSize="16sp"
                 tools:ignore="TextContrastCheck" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
         </LinearLayout>
 

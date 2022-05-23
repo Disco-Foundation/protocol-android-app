@@ -9,13 +9,13 @@ import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.databinding.SampleCustomButtonBinding
 import disco.foundation.discoprotocol.utils.isColorResource
 
-@RequiresApi(Build.VERSION_CODES.M)
 @SuppressLint("ResourceAsColor", "CustomViewStyleable")
 class CustomButton@JvmOverloads constructor(
     context: Context,
@@ -83,11 +83,14 @@ class CustomButton@JvmOverloads constructor(
             bg?.start()
             return@setOnLongClickListener true
         }
+        this.setOnClickListener{
+            bg?.start()
+        }
     }
 
     fun setupAnimation(cb: () -> Unit){
         val bg: AnimatedVectorDrawable? = (binding.buttonImageView.background as? AnimatedVectorDrawable)
-        val value: Animatable2.AnimationCallback = @RequiresApi(Build.VERSION_CODES.M)
+        val value: Animatable2.AnimationCallback =
         object : Animatable2.AnimationCallback() {
 
             override fun onAnimationStart(drawable: Drawable?) {

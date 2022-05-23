@@ -31,6 +31,7 @@ class CustomDialog @JvmOverloads constructor(context: Context) : Dialog(context)
     fun update(message: String, color: Int, showButton: Boolean, buttonText: String? = null, action: (() -> Unit)? = null){
 
         binding.message.text = message
+        print(message)
         if (showButton && action != null) {
             binding.popupBtn.text = buttonText
             binding.popupBtn.setOnClickListener { action() }
