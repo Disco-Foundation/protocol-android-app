@@ -1,12 +1,13 @@
 package disco.foundation.discoprotocol.api
 
+import disco.foundation.discoprotocol.utils.BASE_ENDPOINT
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiAdapter {
-    private const val BASE_URL = "https://api.disco.foundation/api/"
+    private const val BASE_URL = BASE_ENDPOINT//"https://api.disco.foundation/api/"
 
     val apiClient: ApiClient = Retrofit.Builder()
         .baseUrl(BASE_URL)

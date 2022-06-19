@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import disco.foundation.discoprotocol.R
 import disco.foundation.discoprotocol.api.RequestStatus
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
-import disco.foundation.discoprotocol.utils.singleArgViewModelFactory
 import disco.foundation.discoprotocol.utils.solana.actions.waitingForTransaction
 import com.google.gson.Gson
 import com.google.zxing.BarcodeFormat
@@ -21,11 +20,11 @@ import com.solana.networking.NetworkingRouter
 import com.solana.networking.RPCEndpoint
 import disco.foundation.discoprotocol.api.RequestResult
 import disco.foundation.discoprotocol.api.models.*
-import disco.foundation.discoprotocol.utils.ACCEPTED_MINT
-import disco.foundation.discoprotocol.utils.ModuleType
+import disco.foundation.discoprotocol.utils.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.net.URLEncoder
 
 class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() {
 
@@ -64,8 +63,8 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
     // copy this method to your class
     @SuppressLint("ResourceAsColor")
     fun generateQRCode(text: String, color: Int): Bitmap {
-        val width = 500
-        val height = 500
+        val width = 600
+        val height = 600
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         val codeWriter = MultiFormatWriter()
         try {
@@ -96,7 +95,14 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
             val currentTicket = manager.getCurrentTicket()
             val reference = Account().publicKey
 
-            val requestInstruction = CheckInRequestBodyInstruction(
+            //generate request transaction post URL
+
+            var endpoint = BASE_ENDPOINT + CHECK_IN // "https://146d-83-57-94-222.eu.ngrok.io/api/check-in?"
+            endpoint = endpoint + "PIN=" +currentTicket.pin.toString() + "&wearableId="
+            endpoint = endpoint + currentTicket.wearableId.toString() + "&eventId="
+            endpoint = endpoint + (currentEvent?.eventId ?: "") + "&reference=" + reference.toBase58()
+
+            /*val requestInstruction = CheckInRequestBodyInstruction(
                 PIN = currentTicket.pin,
                 wearableId = currentTicket.wearableId,
                 eventId = currentEvent?.eventId ?: ""
@@ -108,7 +114,9 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
                 reference = reference.toBase58()
             )
 
-            link.postValue(Gson().toJson(requestBody))
+            link.postValue(Gson().toJson(requestBody))*/
+            val encodedURL = "solana:" + URLEncoder.encode(endpoint, "utf-8")
+            link.postValue(encodedURL)
             startWaitingTransaction(reference)
         }
     }
@@ -138,7 +146,7 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
            val currentBalance = manager.getCurrentBalance()
            val reference = Account().publicKey
 
-           val requestData = RechargeInstructionDataBody(
+           /*val requestData = RechargeInstructionDataBody(
                amount = currentBalance.amount,
                wearableId = currentTicket.wearableId,
                eventId = currentEvent?.eventId ?: ""
@@ -147,11 +155,18 @@ class ReadQrViewModel(private val manager: ProtoDataStoreManager) : ViewModel() 
                ActionType.RECHARGE.toString(),
                instruction = requestData,
                reference = reference.toBase58()
-           )
+           )*/
+
+           var endpoint =  BASE_ENDPOINT + RECHARGE
+           endpoint = endpoint + "amount=" +currentBalance.amount.toString() + "&wearableId="
+           endpoint = endpoint + currentTicket.wearableId.toString() + "&eventId="
+           endpoint = endpoint + (currentEvent?.eventId ?: "") + "&reference=" + reference.toBase58()
+
 
            rechargeText.postValue("We'll charge you ${currentBalance.amount} $ACCEPTED_MINT")
 
-           link.postValue(Gson().toJson(requestBody))
+           val encodedURL = "solana:" + URLEncoder.encode(endpoint, "utf-8")
+           link.postValue(encodedURL)
            startWaitingTransaction(reference)
        }
     }

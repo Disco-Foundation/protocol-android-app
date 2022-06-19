@@ -4,7 +4,6 @@ import android.content.Context
 import disco.foundation.discoprotocol.models.DiscoBalance
 import disco.foundation.discoprotocol.models.DiscoEvent
 import disco.foundation.discoprotocol.models.DiscoTicket
-import disco.foundation.discoprotocol.utils.EVENT_ID
 
 class ProtoDataStoreManager(context: Context){
 

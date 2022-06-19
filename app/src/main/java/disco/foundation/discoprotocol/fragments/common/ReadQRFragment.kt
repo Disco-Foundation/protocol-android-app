@@ -15,6 +15,7 @@ import disco.foundation.discoprotocol.api.RequestStatus
 import disco.foundation.discoprotocol.components.CustomDialog
 import disco.foundation.discoprotocol.data.ProtoDataStoreManager
 import disco.foundation.discoprotocol.databinding.ReadQRFragmentBinding
+import disco.foundation.discoprotocol.fragments.recharge.EnterBalanceFragmentDirections
 import disco.foundation.discoprotocol.utils.setIndeterminateTintCompat
 import disco.foundation.discoprotocol.viewModels.ReadQrViewModel
 
@@ -53,13 +54,19 @@ class ReadQrFragment : BaseFragment() {
         binding.customToolbar.setupToolbar(viewModel.module.color, getString(viewModel.module.title))
         binding.qrTextBox.setupTextBoxView(getString(viewModel.getTextBoxResource()),viewModel.module.color)
         binding.transactionProgressBar.setIndeterminateTintCompat(ContextCompat.getColor(requireContext(), viewModel.module.color))
+        //setupButton()
         subscribeToEventData()
     }
 
     private fun setupQRCode(code: String){
-        val bitmap = viewModel.generateQRCode(code,ContextCompat.getColor(requireContext(),viewModel.module.color))
+        val bitmap = viewModel.generateQRCode(code,ContextCompat.getColor(requireContext(),R.color.white))
         binding.qrImageView.setImageBitmap(bitmap)
     }
+
+    /*private fun setupButton(){
+        binding.finalizeBtn.color = viewModel.module.color
+        binding.finalizeBtn.setupAnimation { activity?.finish() }
+    }*/
 
     private fun subscribeToEventData(){
         viewModel.link.observe(viewLifecycleOwner) {
@@ -104,7 +111,9 @@ class ReadQrFragment : BaseFragment() {
         }
     }
 
+
     private fun hideTransactionLoading(){
+
         binding.transactionProgressBar.visibility = GONE
         binding.transactionProgressText.visibility = GONE
     }
