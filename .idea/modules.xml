@@ -4,8 +4,17 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Disco_Protocol.iml" filepath="$PROJECT_DIR$/.idea/modules/Disco_Protocol.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Disco_Protocol.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.iml" filepath="$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.main.iml" filepath="$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/rxSolana/Disco_Protocol.rxSolana.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.iml" filepath="$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.main.iml" filepath="$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/solana/Disco_Protocol.solana.unitTest.iml" />
     </modules>
   </component>
 </project>

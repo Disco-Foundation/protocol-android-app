@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.2526041666666667" />
         <entry key="../../../../layout/custom_preview.xml" value="0.22" />
         <entry key="..\:/Users/dayan/Documents/Projects/DiscoFoundation/protocol-android-app/app/src/main/res/drawable/icons/drawable/drawable/ic_round_qr_code_scanner_24.xml" value="0.208" />
         <entry key="..\:/Users/dayan/Documents/Projects/DiscoFoundation/protocol-android-app/app/src/main/res/drawable/qr_frame.xml" value="0.1715" />
@@ -139,8 +140,9 @@
         <entry key="app/src/main/res/layout/fragment_show_options.xml" value="0.23777173913043478" />
         <entry key="app/src/main/res/layout/fragment_ticket_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_view_info.xml" value="0.32608695652173914" />
-        <entry key="app/src/main/res/layout/read_q_r_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/read_q_r_fragment.xml" value="0.264" />
         <entry key="app/src/main/res/layout/sample_counter.xml" value="0.3105263157894737" />
+        <entry key="app/src/main/res/layout/sample_custom_dialog.xml" value="0.3038949275362319" />
         <entry key="app/src/main/res/layout/sample_custom_popup.xml" value="0.12" />
         <entry key="app/src/main/res/layout/sample_custom_toolbar.xml" value="0.15" />
         <entry key="app/src/main/res/layout/sample_partial_ticket_info.xml" value="0.2758152173913043" />
